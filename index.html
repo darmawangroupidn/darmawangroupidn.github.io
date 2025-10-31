@@ -931,18 +931,23 @@
       })();
       </script>
       <!--End of Tawk.to Script-->
-  
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
 
-  <style>
-    #tawkchat-minified-wrapper,
-    #tawkchat-container {
-      left: 20px !important;   /* jarak dari kiri */
-      right: auto !important;  /* hilangkan posisi kanan */
-      bottom: 20px !important; /* jarak dari bawah */
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+  
+  <script>
+  // Jalankan setelah widget Tawk.to selesai dimuat
+  var checkTawk = setInterval(function() {
+    var chatBox = document.querySelector("#tawkchat-container");
+    if (chatBox) {
+      chatBox.style.left = "20px";
+      chatBox.style.right = "auto";
+      chatBox.style.bottom = "20px";
+      chatBox.style.position = "fixed";
+      chatBox.style.zIndex = "999999";
+      clearInterval(checkTawk); // stop pengecekan
     }
-</style>
+  }, 500);
 
 </body>
 
